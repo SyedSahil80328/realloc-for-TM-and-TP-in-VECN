@@ -1,0 +1,94 @@
+======================================================================
+[SYSTEM] Console and log-file logging initialized.
+[SYSTEM] Log file: /content/console_output_v6.log
+[SYSTEM] Execution started: 2026-11-08 04:46:53
+======================================================================
+[OK] Environment class defined with author physical parameters.
+[OK] Neural network architectures and Replay Buffer ready.
+[OK] All 5 RL algorithms defined successfully.
+[OK] Metrics evaluation harness loaded.
+======================================================================
+RUNNING SMOKE TEST VERIFICATION (10 EPISODES, N=7)
+======================================================================
+Smoke Test Step Reward Mean: -3.3943
+Smoke Test DT Delay Mean: 12.74 ms
+Smoke Test Task Delay Mean: 29.31 ms
+[SUCCESS] ALL SMOKE TESTS PASSED SUCCESSFULLY! [OK]
+======================================================================
+EXPERIMENT 1: COMPARISON OF ALL 5 ALGORITHMS AT N = 7 (500 EPISODES)
+======================================================================
+Training Random at N=7 for 500 episodes...
+[Random] Completed -> Eval Reward: -3.4091, DT Sat: 100.0%, TK Sat: 100.0%
+Training PPO at N=7 for 500 episodes...
+[PPO] Completed -> Eval Reward: -3.4252, DT Sat: 100.0%, TK Sat: 100.0%
+Training SAC at N=7 for 500 episodes...
+[SAC] Completed -> Eval Reward: -3.4212, DT Sat: 100.0%, TK Sat: 100.0%
+Training MATD3 at N=7 for 500 episodes...
+[MATD3] Completed -> Eval Reward: 4.1213, DT Sat: 0.0%, TK Sat: 100.0%
+Training TMTPRCS (Proposed) at N=7 for 500 episodes...
+[TMTPRCS (Proposed)] Completed -> Eval Reward: 4.1910, DT Sat: 0.0%, TK Sat: 100.0%
+[SAVED] Figure 4 exported to fig4_convergence_N7.png
+
+=== Summary Table at N = 7 ===
+                    avg_reward  dt_deadline_sat_ratio  \
+Random               -3.409121                    1.0   
+PPO                  -3.425207                    1.0   
+SAC                  -3.421224                    1.0   
+MATD3                 4.121345                    0.0   
+TMTPRCS (Proposed)    4.191048                    0.0   
+
+                    task_deadline_sat_ratio  server_utilization_pct  \
+Random                                  1.0                   350.0   
+PPO                                     1.0                   350.0   
+SAC                                     1.0                   350.0   
+MATD3                                   1.0                   350.0   
+TMTPRCS (Proposed)                      1.0                   350.0   
+
+                    dt_delay_mean_ms  task_delay_mean_ms  
+Random                  1.051334e+01           33.087921  
+PPO                     8.330873e+00           29.699982  
+SAC                     8.869230e+00           29.880531  
+MATD3                   1.694291e+06           23.650284  
+TMTPRCS (Proposed)      1.788516e+06           23.625810  
+[SAVED] Table exported to comparison_summary_N7.csv
+======================================================================
+EXPERIMENT 2: VEHICLE DENSITY SWEEP (N = 4, 5, 6, 7, 8)
+======================================================================
+
+--- Evaluating Vehicle Density N = 4 ---
+
+--- Evaluating Vehicle Density N = 5 ---
+
+--- Evaluating Vehicle Density N = 6 ---
+
+--- Evaluating Vehicle Density N = 7 ---
+
+--- Evaluating Vehicle Density N = 8 ---
+[SAVED] Figures 5, 6, 7a, and 7b exported successfully.
+======================================================================
+EXPERIMENT 3: MULTI-SEED VARIANCE EVALUATION FOR TMTPRCS (N = 7)
+======================================================================
+Seed 42 -> Reward: 4.2602, Twin Sat Ratio: 0.0%, Task Sat Ratio: 100.0%
+Seed 43 -> Reward: 4.1606, Twin Sat Ratio: 0.0%, Task Sat Ratio: 100.0%
+Seed 44 -> Reward: 4.1441, Twin Sat Ratio: 0.0%, Task Sat Ratio: 100.0%
+Seed 45 -> Reward: 4.1602, Twin Sat Ratio: 0.0%, Task Sat Ratio: 100.0%
+Seed 46 -> Reward: 3.3584, Twin Sat Ratio: 14.3%, Task Sat Ratio: 85.7%
+
+TMTPRCS Multi-Seed Stability Summary (5 Seeds):
+Average Satisfaction Utility: 4.0167 +/- 0.3317
+Twin Deadline Satisfaction:  2.86% +/- 5.71%
+Task Deadline Satisfaction:  97.14% +/- 5.71%
+======================================================================
+PACKAGING EXPERIMENT RESULTS AND TRIGGERING AUTOMATIC DOWNLOAD
+======================================================================
+Added to zip: console_output_v6.log
+Added to zip: fig4_convergence_N7.png
+Added to zip: fig5_resource_utilization.png
+Added to zip: fig6_per_vehicle_utility.png
+Added to zip: fig7a_twin_delay.png
+Added to zip: fig7b_task_delay.png
+Added to zip: comparison_summary_N7.csv
+Added to zip: vehicle_sweep_summary.csv
+
+[SUCCESS] All output files packaged into 'simulation_results_v6.zip'.
+[DOWNLOAD TRIGGERED] 'simulation_results_v6.zip' download initiated in your browser!
